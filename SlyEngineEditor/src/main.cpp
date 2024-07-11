@@ -1,11 +1,21 @@
-#include <iostream>
-#include <SlyEngineCore\test.h>
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-	std::cout << "Hello World" << std::endl;
+    sf::RenderWindow window(sf::VideoMode(720, 480), "SFML works!");
 
-	test_log();
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
 
-	return 0;
+        window.clear();
+        window.display();
+    }
+
+    return 0;
 }
